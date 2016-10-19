@@ -4,7 +4,10 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
+
 import {
   AppRegistry,
   StyleSheet,
@@ -12,42 +15,42 @@ import {
   View
 } from 'react-native';
 
+import Header from './js_files/header';
+import ListItem from './js_files/list_item';
+import ImportantNews from './js_files/impr_news';
+import Search from './js_files/search';
+import TouchAble from './js_files/touchable';
+import ImageViewer from './js_files/image_viewer'
+
+
 export default class ReactNativeDemo extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <View style={styles.flex}>
+                {/*<Header></Header>
+                <ListItem title='Test line 1'></ListItem>
+                <ListItem title='Test line 2'></ListItem>
+                <ListItem title='Test line 3'></ListItem>
+                <ListItem title='Test line 4'></ListItem>
+                <ImportantNews news={[
+                  'import news list 1',
+                  'import news list 2',
+                  'import news list 3',
+                  'import news list 4',
+                ]}></ImportantNews>
+          <Search></Search> 
+          <TouchAble></TouchAble>*/}
+
+            <ImageViewer></ImageViewer>
+          </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  flex: {
+    flex: 1
+  }
 });
 
 AppRegistry.registerComponent('ReactNativeDemo', () => ReactNativeDemo);
