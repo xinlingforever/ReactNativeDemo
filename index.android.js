@@ -20,7 +20,10 @@ import ListItem from './js_files/list_item';
 import ImportantNews from './js_files/impr_news';
 import Search from './js_files/search';
 import TouchAble from './js_files/touchable';
-import ImageViewer from './js_files/image_viewer'
+import ImageViewer from './js_files/image_viewer';
+import WebPage from './js_files/webpage';
+import UniformView from './js_files/navigator'
+import UniformView2 from './js_files/navigator_uniform'
 
 
 export default class ReactNativeDemo extends Component {
@@ -39,9 +42,12 @@ export default class ReactNativeDemo extends Component {
                   'import news list 4',
                 ]}></ImportantNews>
           <Search></Search> 
-          <TouchAble></TouchAble>*/}
+          <TouchAble></TouchAble>
 
             <ImageViewer></ImageViewer>
+            <NavigatorItem></NavigatorItem> */}
+            <UniformView></UniformView>
+
           </View>
     );
   }
