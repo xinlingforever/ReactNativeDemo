@@ -12,11 +12,19 @@ import {
 } from 'react-native'; 
 
 import WebPage from './webpage';
+import ImageViewer from './image_viewer';
 
 const firstPageUri = 'http://sohu.com';
 const secondPageuri = 'http://baidu.com';
 const thirdPageuri = 'http://163.com';
-const MAX_PAGE_NUMS = 3;
+
+const imgs = [
+	'http://www.ituring.com.cn/bookcover/1442.796.jpg',
+	'http://www.ituring.com.cn/bookcover/1668.553.jpg',
+	'http://www.ituring.com.cn/bookcover/1521.260.jpg'
+];
+
+const MAX_PAGE_NUMS = 2;
 
 class FirstPage extends Component {
 	gotoNext(name, type = 'Normal') {
@@ -25,20 +33,20 @@ class FirstPage extends Component {
 			passProps: {
 				id: name,
 			},
+			title: name
 		})
 	}
-
 	render() {
 		return (
 			<View style={styles.container}>
 			  <View style={styles.webpage}>
-			    <WebPage uri={firstPageUri}></WebPage>
+			    <ImageViewer></ImageViewer>
 			  </View>
 			  <TouchableOpacity
-          onPress={()=>this.gotoNext('FIRST PAGE')}>
+          onPress={()=>this.gotoNext('ENGAGED LIST')}>
           <View style={styles.bottomBtn}>
             <Text style={styles.buttonText}>
-              {'GOTO NEXT PAGE'}
+              GOTO ENGAGED LIST
             </Text>
           </View>
         </TouchableOpacity>
@@ -48,14 +56,6 @@ class FirstPage extends Component {
 }
 
 class SecondPage extends Component {
-	gotoNext(name, type = 'Normal') {
-		this.props.navigator.push({
-			component: ThirdPage,
-			passProps: {
-				id: name
-			},
-		});
-	}
 	render() {
 	  return (
 	    <View style={styles.container}>
@@ -63,35 +63,15 @@ class SecondPage extends Component {
 			    <WebPage uri={secondPageuri}></WebPage>
 			  </View>
         <TouchableOpacity
-          onPress={()=> this.gotoNext('Second Page')}>
+          onPress={()=> this.props.navigator.pop()}>
           <View style={styles.bottomBtn}>
             <Text style={styles.buttonText}>
-              Prev, from: {this.props.id}
+              Back to STORE
             </Text>
           </View>
         </TouchableOpacity>
       </View>
 	  );
-	}
-}
-
-class ThirdPage extends Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<View style={styles.webpage}>
-			    <WebPage uri={thirdPageuri}></WebPage>
-			  </View>
-			  {/*<View style={styles.bottomBtn}>
-          <TouchableOpacity
-            onPress={()=>this.props.navigator.pop()}>
-            <Text style={styles.buttonText}>
-              Prev, from: {this.props.id}
-            </Text>
-          </TouchableOpacity>
-        </View>*/}
-      </View>
-		);
 	}
 }
 
@@ -127,13 +107,13 @@ var NavigationBarRouteMapper = {
 	Title(route, navigator, index, navState) {
     return (
       <View style={styles.navTitle}>
-        <Text style={styles.titleText}>PAGE {index}</Text>
+        <Text style={styles.titleText}>{route.title}</Text>
       </View>
     );
 	}
 };
 
-export default class NavigatorView extends Component {
+export default class NavigatorView2 extends Component {
 
 	renderScene(route, navigator) {
 		return <route.component navigator={navigator}  {...route.passProps} />;
@@ -148,7 +128,7 @@ export default class NavigatorView extends Component {
 			<Navigator 
 			  style = {{flex: 1}}
 			  initialRoute = {{
-					name: 'FirstPage',
+					title: 'STORE',
 					component: FirstPage
 			  }}
 			  configureScene = {

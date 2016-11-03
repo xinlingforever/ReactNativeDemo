@@ -22,9 +22,25 @@ import Search from './js_files/search';
 import TouchAble from './js_files/touchable';
 import ImageViewer from './js_files/image_viewer';
 import WebPage from './js_files/webpage';
-import UniformView from './js_files/navigator'
-import UniformView2 from './js_files/navigator_uniform'
-
+import NavigatorView from './js_files/navigator';
+import NavigatorView2 from './js_files/navigator2';
+import ProgressBarAndroidExample from './fb_examples/ProgressBarAndroidExample.android';
+import DrawerLayoutDemo from './js_files/drawer_layout_android';
+import ScrollViewSimpleExample from './js_files/scrollview_demo';
+import ToolBarAndroidDemo from './js_files/toolbar_android_demo';
+import SwitchDemo from './js_files/switcher_demo';
+import PickerDemo from './js_files/picker_demo';
+import ViewPagerAndroidExample from './js_files/view_pager_demo';
+import PullToRefreshDemo from './js_files/pull_to_refresh';
+import ClipboardExample from './js_files/clipborad_demo';
+import DatePickerAndroidExample from './js_files/date_picker_demo';
+import NetInfoDemo from './js_files/net_info_demo';
+import LayoutAnimatedDemo from './js_files/layout_animated_demo';
+import AnimatedDemo from './js_files/animated_demo';
+import PressEventDemo from './js_files/press_event_demo';
+import PressEventDemo2 from './js_files/press_event_demo';
+import MoveEventDemo from './js_files/move_event_demo';
+import MoveEventDemo2 from './js_files/move_event_demo';
 
 export default class ReactNativeDemo extends Component {
   render() {
@@ -46,7 +62,7 @@ export default class ReactNativeDemo extends Component {
 
             <ImageViewer></ImageViewer>
             <NavigatorItem></NavigatorItem> */}
-            <UniformView></UniformView>
+            <Header></Header>
 
           </View>
     );

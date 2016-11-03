@@ -7,7 +7,8 @@ import {
 	Text,
 	View,
 	Image,
-	TouchableOpacity
+	TouchableOpacity,
+	Dimensions
 } from 'react-native';
 
 var imgs = [
@@ -16,7 +17,10 @@ var imgs = [
 	'http://www.ituring.com.cn/bookcover/1521.260.jpg'
 ];
 
-var imgsLocal = require('./img/ball.jpg');
+var imgsLocal = require('./img/lzl.jpg');
+
+var width = Dimensions.get('window').width;
+var height = Dimensions.get('window').height;
 
 export default class ImageViewer extends Component {
 	constructor(props) {
@@ -51,8 +55,8 @@ export default class ImageViewer extends Component {
 		return (
 			<View style={styles.flex}>
 			  <View style={styles.image}>
-			    <Image 
-			      style={styles.img}
+			    <Image
+			      style={styles.img} 
             source={imgSelected}
             resizeMode='contain'>
           </Image>
@@ -77,25 +81,29 @@ export default class ImageViewer extends Component {
 const styles = StyleSheet.create({
 	flex: {
 		flex: 1,
-		alignItems: 'center'
+		alignItems: 'center',
+		flexDirection: 'column'
 	},
 	image: {
+		flex: 1,
+		width: 320,
+		height: 420,
 		borderWidth: 1,
-		width: 300,
-		height: 200,
 		borderRadius: 5,
+		marginTop: 10,
 		borderColor: '#ccc',
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
 	img: {
-		width: 200,
-		height: 150
+		width: 300,
+		height: 400,
 	},
 	btns: {
 		flexDirection: 'row',
 		justifyContent: 'center',
-		marginTop: 20
+		marginTop: 20,
+		marginBottom: 20
 	},
 	btn: {
 		width: 60,
