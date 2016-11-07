@@ -4,10 +4,15 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  View,
   TouchableOpacity
 } from 'react-native';
 
-var NUM_ITEMS = 20;
+import SimpleViewPagerDemo from './simple_viewpager_demo';
+import Header from './header';
+import Search from './search';
+
+var NUM_ITEMS = 10;
 
 var ScrollViewSimpleExample = React.createClass({
   statics: {
@@ -36,11 +41,31 @@ var ScrollViewSimpleExample = React.createClass({
         </ScrollView>
       );
     }
-    // items[4] = (
-    //   <ScrollView key={'scrollView'} horizontal={true}>
-    //     {this.makeItems(NUM_ITEMS, [styles.itemWrapper, styles.horizontalItemWrapper])}
-    //   </ScrollView>
-    // );
+    items[0] = (
+      <View style={{height: 100}} key={'title'}>
+        <Header />
+      </View>
+    );
+    items[1] = (
+      <View style={{height: 100}} key={'search'}>
+        <Search />
+      </View>
+    );
+    items[2] = (
+      <View style={{
+        height: 300,
+      }} key={'viewpager'}>
+        <SimpleViewPagerDemo />
+      </View>
+    );
+
+    items[6] = (
+      <View style={{
+        height: 300,
+      }} key={'viewpager2'}>
+        <SimpleViewPagerDemo></SimpleViewPagerDemo>
+      </View>
+    );
 
     var verticalScrollView = (
       <ScrollView style={styles.verticalScrollView}>
@@ -62,11 +87,11 @@ var styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 5,
     borderColor: '#a52a2a',
-    padding: 10,
+    padding: 30,
     margin: 5,
   },
   horizontalItemWrapper: {
-    padding: 20
+    padding: 30
   }
 });
 module.exports = ScrollViewSimpleExample;

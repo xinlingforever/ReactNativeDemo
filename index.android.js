@@ -41,6 +41,8 @@ import PressEventDemo from './js_files/press_event_demo';
 import PressEventDemo2 from './js_files/press_event_demo';
 import MoveEventDemo from './js_files/move_event_demo';
 import MoveEventDemo2 from './js_files/move_event_demo';
+import SimpleViewPagerDemo from './js_files/simple_viewpager_demo';
+import VinVDemo from './js_files/viewpager_in_viewpager';
 
 export default class ReactNativeDemo extends Component {
   render() {
@@ -62,7 +64,7 @@ export default class ReactNativeDemo extends Component {
 
             <ImageViewer></ImageViewer>
             <NavigatorItem></NavigatorItem> */}
-            <Header></Header>
+            <VinVDemo></VinVDemo>
 
           </View>
     );

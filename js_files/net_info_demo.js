@@ -27,7 +27,7 @@ class NetInfoDemo extends Component {
   componentDidMount() {
     NetInfo.isConnected.addEventListener(
         'change',
-         this._handleConnectivityChange
+         this._handleConnectivityChange.bind(this)
     );
     //检测网络是否连接
     NetInfo.isConnected.fetch().done(
@@ -41,15 +41,23 @@ class NetInfoDemo extends Component {
   componentWillUnmount() {
     NetInfo.isConnected.removeEventListener(
         'change',
-        this._handleConnectivityChange
+        this._handleConnectivityChange.bind(this)
     );
   }
   _handleConnectivityChange(isConnected) {
-       ToastAndroid.show((isConnected ? 'online' : 'offline'),ToastAndroid.SHORT);
+    ToastAndroid.show((isConnected ? 'online' : 'offline'),ToastAndroid.SHORT);
+    //检测网络是否连接
+    NetInfo.isConnected.fetch().done(
+        (isConnected) => { this.setState({isConnected}); }
+    );
+    //检测网络连接信息
+     NetInfo.fetch().done(
+        (connectionInfo) => { this.setState({connectionInfo}); }
+    );
   }
   render() {
     return (
-      <View >
+      <View ref={ viewV => { this.viewV = viewV }}>
         <Text style={styles.welcome}>
             当前的网络状态
         </Text>

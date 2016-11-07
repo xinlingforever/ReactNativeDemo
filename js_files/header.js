@@ -65,7 +65,7 @@ export default class Header extends Component {
 const styles = StyleSheet.create({
 	flex: {
 		marginTop: 25,
-		height: 500,
+		height: 50,
 		borderBottomWidth: 3 / PixelRatio.get(),
 		borderBottomColor: '#EF2D36',
 		alignItems: 'center'
